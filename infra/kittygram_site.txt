@@ -1,0 +1,5 @@
+IP: 158.160.69.96;
+name_taski: https://isv-taski.ddns.net/;
+name_kittygram: https://isv-kittygram.ddns.net/;
+login: sergei;
+password: tht53u; 
