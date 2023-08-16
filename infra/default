@@ -1,6 +1,6 @@
 server {
 
-    server_name 158.160.69.96 isv-taski.ddns.net;
+    server_name isv-taski.ddns.net;
 
     location /api/ {
         proxy_pass http://127.0.0.1:8000;
@@ -31,14 +31,14 @@ server {
 
 
     listen 80;
-    server_name 158.160.69.96 isv-taski.ddns.net;
+    server_name isv-taski.ddns.net;
     return 404; # managed by Certbot
 
 }
 
 
 server {
-    server_name 158.160.69.96 isv-kittygram.ddns.net;
+    server_name isv-kittygram.ddns.net;
 
     location /api/ {
         proxy_pass http://127.0.0.1:8080;
@@ -79,7 +79,7 @@ server {
 
 
     listen 80;
-    server_name 158.160.69.96 isv-kittygram.ddns.net;
+    server_name isv-kittygram.ddns.net;
     return 404; # managed by Certbot
 
 
