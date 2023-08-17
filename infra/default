@@ -1,7 +1,6 @@
 server {
-
     server_name isv-taski.ddns.net;
-
+    server_tokens off;
     location /api/ {
         proxy_pass http://127.0.0.1:8000;
     }
@@ -16,29 +15,31 @@ server {
         try_files $uri /index.html =404;
     }
     
-    listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/isv-taski.ddns.net/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/isv-taski.ddns.net/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/isv-taski.ddns.net/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/isv-taski.ddns.net/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 }
 
 server {
     if ($host = isv-taski.ddns.net) {
         return 301 https://$host$request_uri;
-    } # managed by Certbot
+    } 
 
 
 
     listen 80;
     server_name isv-taski.ddns.net;
-    return 404; # managed by Certbot
+    server_tokens off;
+    return 404;
 
 }
 
 
 server {
     server_name isv-kittygram.ddns.net;
+    server_tokens off;
 
     location /api/ {
         proxy_pass http://127.0.0.1:8080;
@@ -61,11 +62,11 @@ server {
     }
 
 
-    listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/isv-kittygram.ddns.net/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/isv-kittygram.ddns.net/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/isv-kittygram.ddns.net/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/isv-kittygram.ddns.net/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
 } 
 
@@ -74,13 +75,14 @@ server {
 server {
     if ($host = isv-kittygram.ddns.net) {
         return 301 https://$host$request_uri;
-    } # managed by Certbot
+    }
 
 
 
     listen 80;
     server_name isv-kittygram.ddns.net;
-    return 404; # managed by Certbot
+    server_tokens off;
+    return 404;
 
 
 }
