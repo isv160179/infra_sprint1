@@ -56,7 +56,7 @@
 
 ```
 {
-    "count": 10,
+    "count": 1,
     "next": null,
     "previous": null,
     "results": [
@@ -80,7 +80,8 @@
             "image": "http://127.0.0.1:8080/media/cats/images/temp.png",
             "image_url": "/media/cats/images/temp.png"
         },
-  ....
+  ]
+}
 
 ```
 * Разместить фото котика (POST-запрос): 
