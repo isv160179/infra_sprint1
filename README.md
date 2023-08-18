@@ -3,6 +3,104 @@
 ## Описание проекта
 Пользователи могут регистрироваться, загружать фотографии своих котов с кратким описанием и смотреть котиков других пользователей.
 
+### Примеры запросов API:
+* Создание нового пользователя (POST-запрос):
+  
+  - api/users/
+```
+    {
+        "email": "string",
+        "username": "string",
+        "password": "string"
+    }
+
+``` 
+* Получение токена для аутентификации (POST-запрос): 
+
+  - api/token/login/
+```
+    {
+        "username": "string",
+        "password": "string"
+    }
+
+```
+
+* Получить данные о всех пользователях (GET-запрос):
+
+  - api/users/
+```
+    {
+    "count": 2,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "email": "user1@mail.ru",
+            "id": 1,
+            "username": "user1"
+        }
+        {
+            "email": "user2@mail.ru",
+            "id": 2,
+            "username": "user2"
+        }
+    ]
+}
+
+```
+
+* Получить список всех котиков (GET-запрос): 
+
+  - api/сats/
+
+```
+{
+    "count": 10,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 1,
+            "name": "Барсик",
+            "color": "black",
+            "birth_year": 2002,
+            "achievements": [
+                {
+                    "id": 1,
+                    "achievement_name": "Съел рыбку"
+                },
+                {
+                    "id": 2,
+                    "achievement_name": "Упал с забора"
+                }
+            ],
+            "owner": "Сергей",
+            "age": 44,
+            "image": "http://127.0.0.1:8080/media/cats/images/temp.png",
+            "image_url": "/media/cats/images/temp.png"
+        },
+  ....
+
+```
+* Разместить фото котика (POST-запрос): 
+
+  - api/cats/
+  - В поле image передавать строку с картинкой в формате base64 
+
+```
+        {
+            "name": "Василий",
+            "color": "#DCDCDC",
+            "birth_year": 2020,
+            "image": base64
+            "achievements": [
+                {"achievement_name": "разбил вазу"}
+            ]
+        }   
+
+```
+
 
 # Установка проекта на локальный компьютер из репозитория Github
 - форкнуть репозиторий git@github.com:isv160179/infra_sprint1.git себе на GitHub
